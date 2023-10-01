@@ -1,0 +1,31 @@
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: transparent;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+    color: rgb(255, 255, 255); 
+}
+
+th {
+    background-color: transparent;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: transparent;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+}
