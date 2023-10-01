@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Calculator</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Javascript Calculator</h1>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <input type="text" id="display" class="form-control mb-2" placeholder="0" readonly>
+                <div class="row">
+                    <div class="col-md-3">
+                        <button class="btn btn-primary btn-block mb-2" onclick="appendToInput(1)">1</button>
+                        <button class="btn btn-primary btn-block mb-2" onclick="appendToInput(4)">4</button>
+                        <button class="btn btn-primary btn-block mb-2" onclick="appendToInput(7)">7</button>
+                        <button class="btn btn-primary btn-block mb-2" onclick="appendToInput(0)">0</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary btn-block mb-2" onclick="appendToInput(2)">2</button>
+                        <button class="btn btn-primary btn-block mb-2" onclick="appendToInput(5)">5</button>
+                        <button class="btn btn-primary btn-block mb-2" onclick="appendToInput(8)">8</button>
+                        <button class="btn btn-primary btn-block mb-2" onclick="appendToInput('.')">.</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary btn-block mb-2" onclick="appendToInput(3)">3</button>
+                        <button class="btn btn-primary btn-block mb-2" onclick="appendToInput(6)">6</button>
+                        <button class="btn btn-primary btn-block mb-2" onclick="appendToInput(9)">9</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-secondary btn-block mb-2" onclick="appendToInput('+')">+</button>
+                        <button class="btn btn-secondary btn-block mb-2" onclick="appendToInput('-')">-</button>
+                        <button class="btn btn-secondary btn-block mb-2" onclick="appendToInput('*')">*</button>
+                        <button class="btn btn-secondary btn-block mb-2" onclick="appendToInput('/')">/</button>
+                        <button class="btn btn-danger btn-block mb-2" onclick="clearDisplay()">C</button>
+                    </div>
+                </div>
+                <button class="btn btn-success btn-block mb-2" onclick="calculate()">=</button>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        var currentInput = ''; 
+        var currentOperator = ''; 
+
+        function appendToInput(value) {
+            currentInput += value;
+            document.getElementById('display').value = currentInput;
+        }
+
+        function calculate() {
+            try {
+                var result = eval(currentInput);
+                document.getElementById('display').value = result;
+                currentInput = result.toString();
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+                currentInput = '';
+            }
+        }
+
+        function clearDisplay() {
+            currentInput = '';
+            document.getElementById('display').value = '0';
+        }
+    </script>
+</body>
+</html>
